@@ -51,8 +51,6 @@ function flushOperation(intBuffer) {
 }
 
 function handleSymbol(value) {
-  console.log("symbol");
-
   switch (value) {
     case "C":
       buffer = "0";
@@ -61,7 +59,7 @@ function handleSymbol(value) {
     case "=":
       if (previousOperator === null) {
         // need two numbers to do math
-        return;
+        break;
       }
       flushOperation(parseInt(buffer));
       previousOperator = null;
